@@ -1,5 +1,6 @@
 package com.vemPraCalcme.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,15 @@ public class PessoaService {
 	@Autowired
 	private PessoaRepository repo;
 	
-	public Pessoa Buscar(Integer id) {
-		Optional<Pessoa> obj = repo.findById(id);
-		return obj.orElse(null);
+	public List<Pessoa> findAll() {
+		List<Pessoa> obj = repo.findAll();
+		return obj;
 	}
+	
+	
+	public Pessoa createCalcme(Pessoa obj) {
+		return repo.save(obj);
+	}
+	
 	
 }
